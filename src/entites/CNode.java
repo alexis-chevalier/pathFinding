@@ -79,7 +79,7 @@ public class CNode {
     }
 
     public void setStatus(String status) {
-        if (status == "undefined" || status == "visited" || status == "neighboor" || status == "end" || status == "start" || status == "current"){
+        if (status == "undefined" || status == "visited" || status == "end" || status == "start" || status == "retour"){
             this.status = status;
         }
         else{

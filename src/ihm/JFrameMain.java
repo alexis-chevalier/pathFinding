@@ -5,11 +5,9 @@
  */
 package ihm;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+import entites.CGraph;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,16 +20,6 @@ public class JFrameMain extends javax.swing.JFrame {
      */
     public JFrameMain() {
         initComponents();
-        BufferedImage off_Image
-                = new BufferedImage(100, 50,
-                        BufferedImage.TYPE_INT_ARGB);
-        /*Graphics2D g2d = off_Image.createGraphics();
-        g2d.setColor(Color.RED);
-        g2d.fillRect(0, 0, off_Image.getWidth(), off_Image.getHeight());
-        g2d.drawImage(off_Image,100,100, this);
-        this.jPanelImage.add(new JLabel(new ImageIcon(off_Image)));*/
-        JLabel picLabel = new JLabel(new ImageIcon(off_Image));
-        jPanelImage.add(picLabel);
     }
 
     /**
@@ -43,37 +31,22 @@ public class JFrameMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelImage = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldTaille = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextFieldNodeDebut = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextFieldNodeFin = new javax.swing.JTextField();
         jButtonGo = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextFieldXDebut = new javax.swing.JTextField();
+        jTextFieldYDebut = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jTextFieldXFin = new javax.swing.JTextField();
+        jTextFieldYFin = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Djikstra");
-
-        jLabel4.setText("jLabel4");
-
-        javax.swing.GroupLayout jPanelImageLayout = new javax.swing.GroupLayout(jPanelImage);
-        jPanelImage.setLayout(jPanelImageLayout);
-        jPanelImageLayout.setHorizontalGroup(
-            jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelImageLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel4)
-                .addContainerGap(378, Short.MAX_VALUE))
-        );
-        jPanelImageLayout.setVerticalGroup(
-            jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelImageLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         jLabel1.setText("Taille");
 
@@ -81,11 +54,7 @@ public class JFrameMain extends javax.swing.JFrame {
 
         jLabel2.setText("Node départ");
 
-        jTextFieldNodeDebut.setText("1,1");
-
         jLabel3.setText("Node fin");
-
-        jTextFieldNodeFin.setText("5,5");
 
         jButtonGo.setText("Go !");
         jButtonGo.addActionListener(new java.awt.event.ActionListener() {
@@ -94,37 +63,65 @@ public class JFrameMain extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("x");
+
+        jLabel6.setText("y");
+
+        jTextFieldXDebut.setText("1");
+
+        jTextFieldYDebut.setText("1");
+        jTextFieldYDebut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldYDebutActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("x");
+
+        jLabel8.setText("y");
+
+        jTextFieldXFin.setText("5");
+
+        jTextFieldYFin.setText("5");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(jLabel3))
+                        .addComponent(jButtonGo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel5)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTextFieldXDebut))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel6)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTextFieldYDebut))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(16, 16, 16)
+                            .addComponent(jLabel1))
+                        .addComponent(jTextFieldTaille))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldTaille, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldNodeDebut)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel3))
-                            .addComponent(jTextFieldNodeFin)
-                            .addComponent(jButtonGo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(74, 74, 74))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldXFin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldYFin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(51, 51, 51))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -132,12 +129,24 @@ public class JFrameMain extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldNodeDebut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTextFieldXDebut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jTextFieldYDebut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldNodeFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldXFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jTextFieldYFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jButtonGo)
                 .addGap(31, 31, 31))
         );
@@ -146,8 +155,24 @@ public class JFrameMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonGoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGoActionPerformed
-        // TODO add your handling code here:
+        int taille = Integer.parseInt(this.jTextFieldTaille.getText());
+        int debutX = Integer.parseInt(this.jTextFieldXDebut.getText());
+        int debutY = Integer.parseInt(this.jTextFieldYDebut.getText());
+        int finX = Integer.parseInt(this.jTextFieldXFin.getText());
+        int finY = Integer.parseInt(this.jTextFieldYFin.getText());
+
+        CGraph graph = new CGraph(taille, debutX, debutY, finX, finY);
+        JImage image = new JImage(graph.getTaille(),graph);
+        try {
+            image.faireDessin();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(JFrameMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonGoActionPerformed
+
+    private void jTextFieldYDebutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldYDebutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldYDebutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,10 +215,14 @@ public class JFrameMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanelImage;
-    private javax.swing.JTextField jTextFieldNodeDebut;
-    private javax.swing.JTextField jTextFieldNodeFin;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField jTextFieldTaille;
+    private javax.swing.JTextField jTextFieldXDebut;
+    private javax.swing.JTextField jTextFieldXFin;
+    private javax.swing.JTextField jTextFieldYDebut;
+    private javax.swing.JTextField jTextFieldYFin;
     // End of variables declaration//GEN-END:variables
 }

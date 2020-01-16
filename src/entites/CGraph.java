@@ -176,5 +176,13 @@ public class CGraph {
 
         return listNodeVoisins;
     }
+    
+    public static void main(String[] args) {
+        CGraph graph = new CGraph(5,1,1,5,5);
+        graph.genererNodes();
+        for (int i = 0; i < graph.getListeNode().size(); i++) {
+            System.out.println(graph.getListeNode().get(i));            
+        }
+    }
 
 }
