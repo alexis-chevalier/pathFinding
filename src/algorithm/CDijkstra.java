@@ -8,7 +8,7 @@ import java.util.ArrayList;
  *
  * @author alexis
  */
-public class CDjikstra {
+public class CDijkstra {
 
     /**
      * Trouve le chemin le plus court et met à jour le graph.
@@ -169,7 +169,7 @@ public class CDjikstra {
     public static void main(String[] args) {
         CGraph graph = new CGraph(4, 1, 1, 4, 4);
         graph.genererNodes();
-        CDjikstra djikstra = new CDjikstra();
+        CDijkstra djikstra = new CDijkstra();
 
         //djikstra.utiliser(graph);
         ArrayList<CNode> listeNodeATester = djikstra.prochaineEtape(graph);

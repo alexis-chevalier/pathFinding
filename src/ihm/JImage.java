@@ -1,6 +1,6 @@
 package ihm;
 
-import algorithm.CDjikstra;
+import algorithm.CDijkstra;
 import entites.CGraph;
 import entites.CNode;
 import java.awt.Color;
@@ -43,9 +43,9 @@ public class JImage extends JComponent {
 
     public static void main(String[] args) throws InterruptedException {
         Random r = new Random();
-        int taille = r.nextInt((50 - 3) + 1) + 3;
-        int debutX = r.nextInt((taille - 3) + 1) + 3;
-        int debutY = debutX;
+        int taille = 20;
+        int debutX = 10;
+        int debutY = 5;
         int finX = r.nextInt((taille - 3) + 1) + 3;
         int finY = r.nextInt((taille - 3) + 1) + 3;
         
@@ -58,7 +58,7 @@ public class JImage extends JComponent {
         JFrame frame = new JFrame("Djikstra");
         CGraph graphTemp = this.getGraph();
         graphTemp.genererNodes();
-        CDjikstra djikstra = new CDjikstra();
+        CDijkstra djikstra = new CDijkstra();
         ArrayList<CNode> listeVoisinsATester = djikstra.prochaineEtape(graphTemp);
         frame.add(new JImage(graphTemp.getTaille(), graphTemp));
         frame.pack();
